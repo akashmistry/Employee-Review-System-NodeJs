@@ -41,7 +41,8 @@ app.use(
     },
     store: MongoStore.create(
       {
-        mongoUrl: "mongodb://localhost:27017/employee_review_system",
+        mongoUrl:
+          "mongodb+srv://akashmistryofficial:03260220@cluster0.tn3dlaa.mongodb.net/?retryWrites=true&w=majority",
         autoRemove: "disabled",
       },
       (err) => {

@@ -2,7 +2,8 @@
 const mongoose = require("mongoose");
 
 // CONNECTION TO THE DATABASE
-const DB = "mongodb://localhost:27017/employee_review_system";
+const DB =
+  "mongodb+srv://akashmistryofficial:03260220@cluster0.tn3dlaa.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(DB);
 
 // TO ACQUIRE THE CONNECTION (TO CHECK IF IT IS SUCCESSFUL)
