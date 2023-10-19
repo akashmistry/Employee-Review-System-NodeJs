@@ -25,8 +25,6 @@ const flashMiddleWare = require("./config/flashMiddleware");
 
 app.use(express.static(path.join(__dirname, "views")));
 
-app.use(express.static(path.join(__dirname, "assets")));
-
 app.set("view engine", "ejs");
 app.set("views", "./views");
 app.use(expressLayout);

@@ -1,22 +1,21 @@
 const mongoose = require("mongoose");
-
-const userSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     name: {
-      type: String,
+      type: "String",
       required: true,
     },
     email: {
-      type: String,
+      type: "String",
       required: true,
       unique: true,
     },
     password: {
-      type: String,
+      type: "String",
       required: true,
     },
     isAdmin: {
-      type: Boolean,
+      type: "Boolean",
       required: true,
     },
     userToReview: [
@@ -25,7 +24,9 @@ const userSchema = new mongoose.Schema(
         ref: "User",
       },
     ],
-    reviewRecivedForm: [
+
+    reviewRecivedFrom: [
+      // recieved review from another people
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Review",
@@ -37,6 +38,5 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-const User = mongoose.model("User", userSchema);
-
+const User = mongoose.model("User", UserSchema);
 module.exports = User;

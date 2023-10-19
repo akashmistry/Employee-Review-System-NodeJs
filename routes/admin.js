@@ -9,6 +9,13 @@ const adminController = require("../controllers/admin_controller");
 // CONTROLLERS AND ACTIONS
 // FOR ASSIGNING WORK TO SOME USER
 router.get(
+  "/assignWork",
+  passport.checkAuthentication,
+  adminController.assignWork
+);
+
+// FOR VIEWING ALL THE USERS
+router.get(
   "/view-employee",
   passport.checkAuthentication,
   adminController.showEmployeeList

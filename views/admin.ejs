@@ -1,21 +1,24 @@
 <link rel="stylesheet" href="/css/admin.css">
-<div class="container-fluid mt-2">
-    <div class="heading">Kindly,assign Recipient and Reviewer</div>
-    <div class="reviewContainer">
+<div class="container-fluid mt-8 w-1/2">
+    <h2 class="text-lg font-medium text-white text-center">Select the Reviewer and the Recipient</h2>
+    <div class="mt-8">
 
-        <div class="reviewer">
-
-            <div class="text-center">
+        <div class="border border-sky-500  h-50 rounded-lg px-4 py-4">
+            <div class="text-center text-white mt-8">
                 Assign Task
-
             </div>
             <hr>
             
-              
-
             <form action="/admin/setReviewes" method="POST" class="mt-1 card-body">
                 <div>
-                    Set Reviewer
+                    <div class="flex items-center justify-between">
+                        <label
+                          for="password"
+                          class="block text-sm text-gray-800 dark:text-gray-200 mb-1"
+                          >Set Reviewer
+                          </label
+                        >
+                      </div>
                     <select class="form-select form-select" aria-label="Default select example" name="sender">
                         <option selected>Sender</option>
                         <% for(let i = 0; i<employe.length ; i++){ %>
@@ -26,8 +29,15 @@
                     </select>
                 </div>
 
-                <div class="reviewee">
-                  Select the Recipient Employee
+                <div class="mt-4">
+                    <div class="flex items-center justify-between">
+                        <label
+                          for="password"
+                          class="block text-sm text-gray-800 dark:text-gray-200 mb-1"
+                          >Select the Recipient Employee
+                          </label
+                        >
+                      </div>
                     <select class="form-select form-select" aria-label="Default select example" name="reciver">
                         <option selected>Reciver</option>
                         <% for(let i = 0; i<employe.length ; i++){ %>
@@ -37,19 +47,20 @@
                         <%}%>
                     </select>
                 </div>
+                    <div class="grid justify-items-center">
+                        <button type="submit" class="mt-2 px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">Assign Task</button>
+                    </div>
 
-                <div class="submitButtons">
-                    <button type="submit">Submit</button>
-                </div>
             </form>
 
         </div>
     </div>
 
-    <div class="reviewContainer">
-        <div class="reviewer">
-            <div
-                 class="text-center">Make admin to any Employee
+    <div class="mt-8">
+
+        <div class="border border-sky-500  h-50 rounded-lg px-4 py-4">
+            <div class="text-center text-white mt-8">
+                Make admin to any Employee
             </div>
             <hr>
     
@@ -63,8 +74,8 @@
                     <%}%>
                 </select>
     
-                <div class="submitButtons">
-                    <button type="submit">Submit</button>
+                <div class="grid justify-items-center">
+                    <button type="submit" class="mt-2 px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">Submit</button>
                 </div>
     
             </form>

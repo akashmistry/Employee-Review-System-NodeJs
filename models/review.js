@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 
-const reviewSchema = new mongoose.Schema(
+const reviewSchema = mongoose.Schema(
   {
     content: {
       type: "String",
-      required: true,
+      require: true,
     },
     reviewer: {
       type: mongoose.Schema.Types.ObjectId,

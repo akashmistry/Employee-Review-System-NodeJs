@@ -9,29 +9,40 @@
 </head>
 <body>
     <%if(locals.user){%>
-        <div class="outerDiv">    
+        <div class="grid justify-items-center">    
             <% if(!locals.user.isAdmin){ %>
-                <div class="adminPass">
-                    <form action="/users/makeAdmin" method="post">
-                        <input name="admin_password" type="password" placeholder="Password">
-                        <button type="submit" class="submitHomeButton"> Enter as Admin</button>
+                <div class=" mt-6">
+                    <form action="/users/makeAdmin" method="post" class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
+                        <label for="email" class="block text-sm text-gray-800 dark:text-gray-200"
+                        >Enter Password to enter as Admin</label
+                      >
+                        <input
+                        type="password"
+                        name="admin_password"
+                        required
+                        class="block w-full px-4 py-2 mt-2 border rounded-lg bg-gray-800 text-gray-300 border-gray-600 focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                      />
+
+                    <button type="submit" class="mt-2 px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                        Admin
+                    </button>
                     </form>
                 </div>
             <%}%>    
         
 
                 <!-- the text part -->
-        <div class="home-box">
-            <i class="text-colr">Welcome to Employee Review System that helps the admin identify top-performing employees by assigning co-worker reviews. It also allows the admin to promote employees to admin status and add new employees. This system creates a culture of accountability and promotes excellence, leading to better hiring decisions and a stronger workforce.</i>
+        <div class=" text-white text-center w-1/2">
+            <i class="text-center">Welcome to Employee Review System that helps the admin identify top-performing employees by assigning co-worker reviews. It also allows the admin to promote employees to admin status and add new employees. This system creates a culture of accountability and promotes excellence, leading to better hiring decisions and a stronger workforce.</i>
             <hr>
         </div>
 
-        <div class="home-box">
-            <div class="employeereview">Kindly, review your co-employees<img src="../images/rating.webp"><br>
+        <div class=" text-white text-center w-1/2">
+            <div class="employeereview">Kindly, review your co-employees<br>
             <i><h6>This task is assigned by the Admin</h6></i>
             </div>
-
-            <div class="reviewBox">
+<!-- border border-sky-500  h40-->
+            <div class="border border-sky-500  h-48 rounded-lg">
                 <% for(let i = 0 ;i<recipent.length ; i++ ) {%>
                     <%if(recipent[i] != null) {%>
                         <div class="outerBox">
@@ -39,13 +50,14 @@
                                 To : <%= recipent[i].name%>
                             </h6>
                             <div class="innerBox">
-                                <form action="/reviews/newReview/<%= recipent[i]._id %>" method="get">
-                                    <textarea class="formClass" placeholder="Review, here !" name="newReview" rows="5"
-                                    id="floatingTextarea2">
-        
+                                <form action="/reviews/newReview/<%= recipent[i]._id %>" method="get" class="grid justify-items-center">
+                                    <textarea id="message" rows="3" class="block p-2.5 w-1/2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here...">
+
                                     </textarea>
                                     <br>
-                                    <button type="submit" class="submitHomeButton"> Submit </button>
+                                    <div class="grid justify-items-center">
+                                        <button type="submit" class="px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">Submit</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -54,20 +66,20 @@
             </div>
         </div>
 
-        <div class="home-box">
-           <div class="myreview">My Reviews <img src="../images/rating.webp"></div>
-            <div class="reviewBox">
+        <div class=" text-white text-center w-1/2 mt-8">
+           <div class="">My Reviews </div>
+           <div class="border border-sky-500 h-48 rounded-lg grid justify-items-center">
 
-            
-                <div class="card-out">
-                    <% for(let review of reviews ) {%>
-                        <div class="in-card">
-                            <h5 class="cls-txt">Message : <%= review.content %> </h5>
-                            <p class="cls-txt">From : <%= review.name %> </p>
-                            
-                        </div>
-                    <%}%>    
+            <% for(let review of reviews ) {%>
+            <div id="toast-message-cta" class="p-1 rounded-lg shadow bg-gray-800 text-gray-400 mt-2 h-14" role="alert">
+                <div class="flex">
+                    <div class="ml-3 text-sm font-normal grid justify-items-start">
+                        <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">From : <%= review.name %>  </span>
+                        <div class="mb-2 text-sm font-normal">Message : <%= review.content %> </div> 
+                    </div>
                 </div>
+            </div>
+            <%}%>    
             
 
         </div>

@@ -1,39 +1,110 @@
-<link rel="stylesheet" href="/css/admin.css">
+<section class="container px-4 mx-auto">
+  <h2 class="text-lg font-medium text-gray-800 dark:text-white mt-8">All Employees List</h2>
 
-<h5 class="text-center mt-3">All Employees List</h5>
+  
 
-<div class="container mt-4">
-    <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">S.No.</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Password</th>
-            <th scope="col">Admin</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% for(let i = 0; i<employes.length; i++) {%>
-            <tr>
-              <th scope="row"><%= i+1 %></th>
-              <td> <%= employes[i].name%> </td>
-              <td> <%= employes[i].email%> </td>
-              <td> <%= employes[i].password%> </td>
-              <td> <%= employes[i].isAdmin%> </td>
-              <% if(locals.user.id != employes[i]._id) {%>
-                <td> 
-                  <a href="/admin/deleteEmployee/<%= employes[i]._id %>" class="btn btn-md">Delete</a>
-              </td>
-              <%}else{%>
-                <td>
-                  <a href="" class="btn btn-md">Delete</a>
-                </td>
-              <%}%> 
-            </tr>  
-          <%}%>
-          
-        </tbody>
-      </table>
-</div>
+  <div class="flex flex-col mt-6">
+    <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+        <div
+          class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg"
+        >
+          <table
+            class="min-w-full divide-y divide-gray-200 dark:divide-gray-700"
+          >
+            <thead class="bg-gray-800">
+              <tr>
+                <th
+                  scope="col"
+                  class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-400"
+                >
+                  S.No.
+                </th>
+                <th
+                  scope="col"
+                  class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-400"
+                >
+                  Name
+                </th>
+                <th
+                  scope="col"
+                  class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-400"
+                >
+                  Email
+                </th>
+                <th
+                  scope="col"
+                  class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-400"
+                >
+                  Password
+                </th>
+                <th
+                  scope="col"
+                  class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-400"
+                >
+                  Admin
+                </th>
+                <th
+                  scope="col"
+                  class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-400"
+                >
+                  Delete
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-700 bg-gray-900">
+              <% for(let i = 0; i<employes.length; i++) {%>
+                <tr>
+                  <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                      <h2 class="font-medium text-white"><%= i+1 %></h2>
+                  </td>
+
+                  <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    <h2 class="font-medium text-white"> <%= employes[i].name%> </h2>
+                  </td>
+
+                  <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    <h2 class="font-medium text-white"> <%= employes[i].email%> </h2>
+                  </td>
+
+                  <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    <h2 class="font-medium text-white"> <%= employes[i].password%> </h2>
+                  </td>
+
+                  <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                    <div
+                      class="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800"
+                    >
+                     <%= employes[i].isAdmin%>
+                    </div>
+                    <h2 class="font-medium text-white"> </h2>
+                  </td>  
+
+                  <% if(locals.user.id != employes[i]._id) {%>
+                    <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                      <a href="/admin/deleteEmployee/<%= employes[i]._id %>">
+                        <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                          Delete
+                        </button>
+                      </a>
+
+                    </td>  
+                  <%}else{%>
+                    <td class="px-4 py-4 text-sm font-medium whitespace-nowrap">
+                      <a href="" class="btn btn-md">
+                        <button type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                          Delete
+                        </button>
+                      </a>
+                    </td>  
+                  <%}%>             
+                </tr>
+              <%}%>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

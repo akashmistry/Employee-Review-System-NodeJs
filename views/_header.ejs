@@ -1,34 +1,78 @@
-<!-- This is the header syntax -->
-<link rel="stylesheet" href="/css/header.css">
-<div>
-    <div class="navBar">
-        <div class="nameOfApp"><img src="../images/logo.png"><a href="/"> ERS</a></div>
-        <% if (locals.user){ %>
-            <%if(locals.user.isAdmin){%>
-                <div class="logOut">
-                    
-                    <a href="/admin/assignWork"> <small>Assign Work</small> </a>
-                    <a href="/admin/view-employee"> <small>Employees</small> </a>
-                    <a href="/admin/add-employee"> <small> Add Employee </small> </a>
-                    <a href="/users/sign-out" > <small>LogOut </a> </small>
-                    <span class="nameOfUser"><img src="../images/profile.jpg"><%= locals.user.name%>  </span> 
-                </div>
-            <%}else{%>    
-                
-                <div class="logOut"> 
-                <a href="/users/sign-out" > <small>LogOut</small> </a> 
-                <span class="nameOfUser"><img src="../images/profile.jpg"><%= locals.user.name%>  </span>
-            </div>
-            <%}%>
-            
-        <%} else { %>
-            <div class="noUser">
-                <ul>
-                    <li> <a href="/users/sign-in"> Sign-In </a> </li>
-                    <li>  <a href="/users/sign-up"> Sign-Up </a> </li>
-                </ul>
-            </div>
-        
-        <%}%>       
+<nav x-data="{ isOpen: false }" class="relative shadow bg-gray-800">
+  <div
+    class="container py-4 px-0 mx-auto md:flex md:justify-between md:items-center"
+  >
+    <div class="flex items-center justify-between">
+      <a href="/">
+        <img
+          class="w-auto h-6 sm:h-7"
+          src="https://merakiui.com/images/logo.svg"
+          alt=""
+        />
+      </a>
+      <h3 class="ml-2 text-xl font-medium text-center text-gray-200">
+        Employee Review System
+      </h3>
     </div>
-</div> 
+
+    <div class="flex flex-col md:flex-row md:mx-6">
+      <% if (locals.user){ %> <%if(locals.user.isAdmin){%>
+      <a
+        class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+        href="/admin/assignWork"
+      >
+        Assign Work
+      </a>
+
+      <a
+        class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+        href="/admin/view-employee"
+      >
+        Employees</a
+      >
+
+      <a
+        class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+        href="/admin/add-employee"
+        >Add Employee</a
+      >
+      <a
+        class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+        href="/users/sign-out"
+      >
+        LogOut
+      </a>
+      <a
+        href="/"
+        class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+        ><%= locals.user.name%>
+      </a>
+      <%}else{%>
+      <a
+        class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+        href="/users/sign-out"
+      >
+        <small>LogOut</small>
+      </a>
+      <a
+        href="/"
+        class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+        ><%= locals.user.name%>
+      </a>
+      <%}%> <%} else { %>
+      <a
+        class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+        href="/users/sign-in"
+      >
+        Sign-In
+      </a>
+      <a
+        class="my-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-400 md:mx-4 md:my-0"
+        href="/users/sign-up"
+      >
+        Sign-Up
+      </a>
+      <%}%>
+    </div>
+  </div>
+</nav>

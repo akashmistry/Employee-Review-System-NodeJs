@@ -17,7 +17,7 @@ passport.use(
         console.log("Invalid Username/Password");
         return done(null, false);
       }
-      return done(true, user);
+      return done(null, user);
     }
   )
 );
