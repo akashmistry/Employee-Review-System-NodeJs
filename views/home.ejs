@@ -51,7 +51,7 @@
                             </h6>
                             <div class="innerBox">
                                 <form action="/reviews/newReview/<%= recipent[i]._id %>" method="get" class="grid justify-items-center">
-                                    <textarea id="message" rows="3" class="block p-2.5 w-1/2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here...">
+                                    <textarea id="message" rows="3" name="newReview" class="block p-2.5 w-1/2 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 
                                     </textarea>
                                     <br>
@@ -71,7 +71,7 @@
            <div class="border border-sky-500 h-48 rounded-lg grid justify-items-center">
 
             <% for(let review of reviews ) {%>
-            <div id="toast-message-cta" class="p-1 rounded-lg shadow bg-gray-800 text-gray-400 mt-2 h-14" role="alert">
+            <div id="toast-message-cta" class="p-1 rounded-lg shadow bg-gray-800 text-gray-400 mt-2 h-14 w-auto" role="alert">
                 <div class="flex">
                     <div class="ml-3 text-sm font-normal grid justify-items-start">
                         <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">From : <%= review.name %>  </span>
